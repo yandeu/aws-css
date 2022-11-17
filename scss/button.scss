@@ -52,7 +52,8 @@
     color: var(--white);
     background-color: var(--primary);
     border: 1px var(--primary) solid;
-    &::before {
+    &::before,
+    &::after {
       filter: invert(100%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
     }
     &:hover {
