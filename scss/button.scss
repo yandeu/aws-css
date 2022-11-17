@@ -48,6 +48,18 @@
     left: 10px;
   }
 
+  &::before,
+  &::after {
+    filter: invert(33%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      filter: unset;
+    }
+  }
+
   &.primary {
     color: var(--white);
     background-color: var(--primary);
