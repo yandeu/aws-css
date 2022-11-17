@@ -1,0 +1,18 @@
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  gap: 16px;
+
+  @media only screen and (max-width: 688px) {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}

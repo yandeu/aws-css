@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#232f3e" />
+    <title>AWS Console alike CSS</title>
+    <link rel="stylesheet" href="./css/bundle.css" />
+    <script src="./quilljs/quill.min.js"></script>
+    <link href="./quilljs/quill.snow.css" rel="stylesheet" />
+    <script src="./chartjs/chart.min.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="navbar">
+        <div class="flex-space-between">
+          <div class="item"><img width="20" height="20" src="./icon/cubes-solid.svg" /><span>Menu</span></div>
+          <div class="item"><div>user123@6f05d625</div></div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="side-menu-wrapper">
+          <div class="icon-open"><img src="./icon/bars-solid.svg" width="16" height="16" /></div>
+          <div class="header">Menu</div>
+          <ul>
+            <li>link1</li>
+          </ul>
+        </div>
+
+        <script>
+          const menu = document.querySelector('.side-menu-wrapper')
+          menu.addEventListener('click', function () {
+            this.classList.toggle('is-open')
+          })
+        </script>
+
+        <div class="content-wrapper">
+          <div class="dashboard">
+            <h1>Heading1</h1>
+
+            <div class="tabs">
+              <div class="tab"><span class="name">Patient</span></div>
+              <div class="tab active"><span class="name">Consultation</span></div>
+              <div class="tab"><span class="name">Facture</span></div>
+            </div>
+
+            <script>
+              // switch tabs
+              const tabs = document.querySelectorAll('.tab')
+              for (tab of tabs) {
+                tab.addEventListener('pointerdown', e => {
+                  const tab = e.currentTarget
+                  for (t of tabs) t.classList.remove('active')
+                  tab.classList.add('active')
+                })
+              }
+            </script>
+
+            <div class="card">
+              <div class="header">
+                <div class="title">About</div>
+              </div>
+              <div class="body">
+                <p>
+                  Simple and lightweight AWS alike styles.<br />
+                  Repository: <a href="https://github.com/yandeu/aws-css">https://github.com/yandeu/aws-css</a>
+                </p>
+                <p>
+                  <a href="https://yandeu.github.io/aws-css/css/bundle.css"
+                    ><img
+                      src="https://badgen.net/badgesize/gzip/file-url/https/yandeu.github.io/aws-css/css/bundle.css"
+                      alt="gzip size"
+                  /></a>
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="header"><div class="title">form</div></div>
+              <div class="body">
+                <form class="input-collection">
+                  <div class="columns-layout columns-3 padding">
+                    <div>
+                      <div class="label">label</div>
+                      <div class="label-description">label description</div>
+                      <input id="example" type="text" placeholder="placeholder" required />
+                    </div>
+
+                    <div>
+                      <div class="label">label</div>
+                      <div class="label-description">label description</div>
+                      <input id="example" type="text" placeholder="placeholder" required />
+                    </div>
+
+                    <div>
+                      <div class="label">label</div>
+                      <div class="label-description">label description</div>
+                      <input id="example" type="text" placeholder="placeholder" required />
+                    </div>
+                  </div>
+
+                  <div>
+                    <button class="btn primary">save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <details class="card">
+              <summary class="header">
+                <h3 class="title">Summary (opens on click)</h3>
+              </summary>
+              <div class="body">body</div>
+            </details>
+
+            <div id="random-id-845865">
+              <style>
+                #random-id-845865 {
+                  display: flex;
+                  gap: 16px;
+                }
+                #random-id-845865 > div {
+                  width: 50%;
+                }
+                @media only screen and (max-width: 688px) {
+                  #random-id-845865 {
+                    flex-wrap: wrap;
+                  }
+                  #random-id-845865 > div {
+                    width: 100%;
+                  }
+                }
+              </style>
+
+              <div class="card">
+                <div class="header">
+                  <div class="title">Chart.js</div>
+                </div>
+                <div class="body">
+                  <div style="height: 300px">
+                    <canvas id="myChart" height="300"></canvas>
+                  </div>
+                </div>
+              </div>
+              <script>
+                const ctx = document.getElementById('myChart').getContext('2d')
+                const myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [
+                      {
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(255, 206, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                      }
+                    ]
+                  },
+                  options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                })
+              </script>
+
+              <div class="card">
+                <div class="header">
+                  <div class="action-stripe">
+                    <div class="title">Editor</div>
+                    <button class="btn">save</button>
+                  </div>
+                </div>
+                <div class="editor"><div id="quill-editor">edit me...</div></div>
+              </div>
+              <script>
+                const quill = new Quill('#quill-editor', { theme: 'snow' })
+              </script>
+            </div>
+
+            <div class="card">
+              <div class="header">
+                <h3 class="title">Columns 3</h3>
+              </div>
+              <div class="body">
+                <div class="columns-layout columns-3 border">
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                  <div>
+                    <div class="data-label">Label</div>
+                    <div class="data-input editable" onclick="showPopup('.popup-editable-field', this)">data</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="header">
+                <h3 class="title">Table</h3>
+                <div class="action-stripe">
+                  <div class="input-with-icon">
+                    <img src="./icon/magnifying-glass-solid.svg" />
+                    <input placeholder="search" />
+                  </div>
+                </div>
+              </div>
+              <div id="table-example" class="table" style="max-height: 300px">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>FirstName</th>
+                      <th>LastName</th>
+                      <th>BirthDay</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+
+            <script>
+              const create = tag => document.createElement(tag)
+              const thead = document.querySelector('#table-example thead')
+              const tbody = create('tbody')
+
+              const data = [
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020'],
+                ['John', 'Doe', '01.01.2020']
+              ]
+              data.forEach(row => {
+                const tr = create('tr')
+                row.forEach((item, index) => {
+                  const td = create('td')
+                  td.innerHTML = index === 0 ? `<a onclick="showPopup('.popup')">${item}</a>` : item
+                  tr.append(td)
+                })
+                tbody.append(tr)
+              })
+
+              thead.after(tbody)
+            </script>
+
+            <div class="flex-column">
+              <div class="card">
+                <div class="header">
+                  <h3 class="title">Title</h3>
+                  <!-- <p class="description">Description</p> -->
+                </div>
+                <div class="body">
+                  <p>text</p>
+                  <p class="light">light</p>
+                  <p class="inactive">inactive</p>
+                  <p><a>link</a></p>
+                  <hr />
+                  <p>text below hr</p>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="header">
+                  <div class="action-stripe">
+                    <h3 class="title">Action Stripe</h3>
+                    <div><a class="btn">Button</a></div>
+                  </div>
+                  <div class="action-stripe">
+                    <a class="btn">Button</a>
+                    <div class="action-group"><a class="btn">Button</a><a class="btn">Button</a></div>
+                  </div>
+                </div>
+                <div class="body">
+                  <p>text</p>
+                  <p class="light">light</p>
+                  <p class="inactive">inactive</p>
+                  <p><a>link</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="header">
+                <h3 class="title">Buttons</h3>
+              </div>
+              <div class="body">
+                <a class="btn">Button</a>
+                <a class="btn disabled">Button</a>
+                <a class="btn primary">Button</a>
+                <a class="btn primary icon-loading">loading...</a>
+                <a class="btn primary icon-done">done</a>
+                <a class="btn primary icon-error">error</a>
+              </div>
+            </div>
+
+            <div class="popup-editable-field hidden">
+              <div class="box">
+                <form onsubmit="event.preventDefault();">
+                  <label for="example">label</label>
+                  <br />
+                  <input id="example" type="text" />
+                  <button class="btn" onclick="removePopup('.popup-editable-field')">cancel</button>
+                  <button class="btn primary" type="submit" onclick="removePopup('.popup-editable-field')">save</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="popup hidden">
+              <div class="popup-box">
+                <div class="card">
+                  <div class="header">
+                    <div class="flex-space-between">
+                      <h2 class="title">Popup Title</h2>
+                      <!-- todo -->
+                      <span style="cursor: pointer" onclick="hidePopup('.popup')">X</span>
+                    </div>
+                  </div>
+                  <div class="body">
+                    <h3>Paragraph</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias earum eius doloribus esse
+                      accusantium architecto quis obcaecati consequatur labore expedita nemo ad, dolore temporibus iste
+                      amet fugiat iusto? Beatae, cupiditate!
+                    </p>
+                    <h3>Paragraph</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat corporis alias est omnis
+                      blanditiis accusamus expedita, ipsum assumenda ea impedit nesciunt sequi nisi quae delectus,
+                      provident quia iusto. Eveniet sunt iste perferendis neque voluptatem veritatis ducimus fugit alias
+                      architecto nemo numquam, ea recusandae dicta soluta corrupti in ex eligendi quaerat repudiandae
+                      ipsa vitae molestias minima obcaecati. Expedita laboriosam odit, beatae molestiae, fugit quos
+                      consequuntur reprehenderit repudiandae dolorem, natus illum! Ipsa a laborum labore sapiente quasi
+                      iusto nam autem quia enim, odit in, provident esse nihil possimus pariatur similique mollitia
+                      distinctio velit ut porro, ad laboriosam. Sequi magnam labore dolorum provident totam consequatur
+                      hic obcaecati est quo beatae a veniam, quisquam omnis tenetur, adipisci temporibus maiores iure
+                      asperiores officiis necessitatibus aspernatur, sint perferendis illo? Aperiam deserunt accusantium
+                      cupiditate dolores excepturi unde quas facilis repellendus incidunt dolor vitae officia placeat
+                      qui dolorem ex cumque facere, sint quibusdam magni quidem explicabo aspernatur laboriosam?
+                      Aperiam, accusamus exercitationem illum vitae molestiae dolores eos quisquam fugit odit, officia
+                      mollitia enim. Optio placeat fugit consequuntur pariatur a atque architecto praesentium, aliquam
+                      fuga provident ab vitae enim nam neque porro! Officia rerum porro iste distinctio aspernatur iure,
+                      illum ut tempora fuga quam fugiat iusto expedita quibusdam illo quae.
+                    </p>
+                  </div>
+                  <div class="footer">asdf</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showPopup(className, el) {
+        let popup = document.querySelector(className)
+
+        if (popup && el) {
+          popup = popup.cloneNode(true)
+          el.parentElement.style.position = 'relative'
+          el.parentElement.append(popup)
+        }
+
+        if (popup) {
+          popup.classList.remove('hidden')
+        }
+
+        const input = popup.querySelector('input')
+        if (input) {
+          // set focus to input and set cursor to end of input
+          const end = input.value.length || 0
+          input.setSelectionRange(end, end)
+          input.focus()
+        }
+      }
+      function hidePopup(className) {
+        const popup = document.querySelector(className)
+        if (popup) popup.classList.add('hidden')
+      }
+      function removePopup(className) {
+        const popup = document.querySelector(className)
+        if (popup) popup.remove()
+      }
+    </script>
+  </body>
+</html>

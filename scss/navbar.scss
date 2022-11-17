@@ -1,0 +1,40 @@
+.navbar {
+  background-color: var(--header-color);
+
+  > :last-child {
+    margin-right: 8px;
+  }
+
+  .item {
+    padding: 10px 16px;
+    color: var(--white);
+    font-size: 12px;
+    margin-left: 8px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: var(--primary);
+
+      img {
+        filter: invert(50%) sepia(87%) saturate(2094%) hue-rotate(355deg) brightness(95%) contrast(94%);
+      }
+    }
+
+    span {
+      margin-left: 8px;
+    }
+
+    img {
+      filter: invert(100%) sepia(100%) saturate(0%) brightness(100%) contrast(100%);
+    }
+  }
+}

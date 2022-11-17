@@ -1,0 +1,12 @@
+/* quill */
+.ql-container,
+.ql-toolbar {
+  border: none !important;
+}
+.ql-toolbar {
+  background-color: #fafafa !important;
+  border-bottom: 1px #eaeded solid !important;
+}
+.ql-editor {
+  min-height: 280px;
+}

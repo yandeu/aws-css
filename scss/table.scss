@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+  font-size: 14px;
+  border-collapse: collapse;
+
+  td {
+    border-top: 1px var(--border-color) solid;
+  }
+
+  thead {
+    color: var(--black-light);
+    background-color: var(--white-light);
+
+    // sticky header while scrolling
+    position: sticky;
+    top: 0;
+    box-shadow: 2px 0px 2px #ccc;
+
+    tr {
+      th {
+        text-align: left;
+        padding: 0.8rem 2rem;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--black);
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.8rem 2rem;
+      }
+    }
+  }
+}
+
+.table {
+  height: unset;
+  max-height: 450px;
+  overflow: auto;
+}
+.table tr {
+  white-space: nowrap;
+}

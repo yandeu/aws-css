@@ -1,0 +1,90 @@
+@use 'const' as *;
+
+.button,
+.btn {
+  cursor: pointer;
+  padding: 5px 20px;
+  margin: 2px 0px;
+  color: var(--black-light);
+  border: 1px var(--black-light) solid;
+  background-color: white;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  height: 28px;
+
+  &[class*='icon-']::before {
+    display: inline-block;
+    content: ' ';
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    margin: -2px;
+    position: relative;
+    top: 1px;
+    left: -10px;
+  }
+  &.icon-loading::before {
+    background-image: url($icon-url + 'spinner-solid.svg');
+    animation: spin 1.2s linear infinite;
+  }
+  &.icon-done::before {
+    background-image: url($icon-url + 'check-solid.svg');
+  }
+  &.icon-error::before {
+    background-image: url($icon-url + 'triangle-exclamation-solid.svg');
+  }
+
+  &[class*='icon_after-']::after {
+    display: inline-block;
+    content: ' ';
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    margin: -2px;
+    position: relative;
+    top: 1px;
+    left: 10px;
+  }
+
+  &.primary {
+    color: var(--white);
+    background-color: var(--primary);
+    border: 1px var(--primary) solid;
+    &::before {
+      filter: invert(100%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
+    }
+    &:hover {
+      color: var(--white);
+      background-color: var(--primary-dark);
+      border: 1px var(--primary-dark) solid;
+    }
+  }
+
+  &.disabled {
+    color: var(--black-inactive);
+    border: 1px var(--black-inactive) solid;
+    &:hover {
+      cursor: not-allowed;
+      color: var(--black-inactive);
+      border: 1px var(--black-inactive) solid;
+    }
+  }
+
+  &:hover {
+    text-decoration: unset;
+    color: var(--black);
+    border: 1px var(--black) solid;
+  }
+}
+
+select {
+  &.button,
+  &.btn {
+    padding: 4px 0px 4px 8px;
+    font-weight: unset;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+}
