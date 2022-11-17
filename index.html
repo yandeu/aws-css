@@ -333,6 +333,13 @@
                 <a class="btn primary icon-loading">loading...</a>
                 <a class="btn primary icon-done">done</a>
                 <a class="btn primary icon-error">error</a>
+                <style>
+                  .icon_after-custom::after {
+                    background-image: url('../icon/cubes-solid.svg');
+                    color: white;
+                  }
+                </style>
+                <a class="btn primary icon_after-custom">custom icon (::after)</a>
               </div>
             </div>
 
