@@ -6,6 +6,7 @@
 @use 'navbar';
 @use 'button';
 @use 'table';
+@use 'categories';
 @use 'quilljs';
 
 html,
@@ -33,7 +34,7 @@ h1 {
 }
 
 a {
-  color: var(--blue);
+  color: var(--link-color);
   cursor: pointer;
   &:hover {
     text-decoration: underline;

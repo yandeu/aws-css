@@ -1,0 +1,47 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 100;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 2px;
+
+    img {
+      height: 48px;
+      filter: invert(1);
+      padding: 10px;
+      margin-right: 2px;
+    }
+
+    &.red {
+      background-color: var(--red);
+    }
+    &.blue {
+      background-color: var(--blue);
+    }
+    &.teal {
+      background-color: var(--teal);
+    }
+    &.green {
+      background-color: var(--green);
+    }
+    &.orange {
+      background-color: var(--orange);
+    }
+    &.pink {
+      background-color: var(--pink);
+    }
+    &.red {
+      background-color: var(--red);
+    }
+    &.violet {
+      background-color: var(--violet);
+    }
+  }
+}
